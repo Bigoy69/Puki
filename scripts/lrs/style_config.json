@@ -40,18 +40,17 @@
             "noise_offset": 0.0411
         },
         "f61cef4efcc21d26c0257cd9884a1b67c019d786092dfa4bc0b1ef4ed8869d80": {
-            "max_train_epochs": 23,
+            "max_train_epochs": 25,
             "optimizer_args": [
                 "betas=(0.9, 0.999)",
                 "weight_decay=3e-04",
                 "eps=1e-08"
             ],
-            "unet_lr": 5e-5,
-            "text_encoder_lr": 5e-6,
+            "unet_lr": 3e-5,
+            "text_encoder_lr": 3e-6,
             "noise_offset": 0.0411,
             "lr_warmup_steps": 20,
-            "min_snr_gamma": 6,
-            "seed": 2951032221
+            "min_snr_gamma": 7
         },
         "756995ded1a0cd274a3cf4bdb5df47926993806cc19bed0a808a4a211545ab95": {
             "max_train_epochs": 22,
