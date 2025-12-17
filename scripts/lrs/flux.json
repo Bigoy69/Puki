@@ -34,6 +34,11 @@
         },
         "47173b2141dd5aa99d2c1de9208b092e81905789d238a29d092f007e75726ce3": {
             "unet_lr": 0.00008,
+            "network_alpha": 64,
+            "network_args": [
+                "weight_decay=0.005",
+                "betas=(0.9,0.99)"
+            ],
             "text_encoder_lr": [
                 0.000008,
                 0.000008
