@@ -38,7 +38,7 @@ training_comment = "loss_optimized_extreme"
 xformers = true
 
 ###### steps and epochs ######
-max_train_epochs = 60
+max_train_epochs = 100
 save_every_n_epochs = 5
 
 ###### loss function ######
@@ -46,7 +46,7 @@ loss_type = "l2"
 
 ###### batch size ######
 train_batch_size = 8
-gradient_accumulation_steps = 2
+gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "AdamW8bit"
@@ -56,8 +56,8 @@ text_encoder_lr = 2e-5
 
 ###### lr scheduler ######
 lr_scheduler = "cosine"
-lr_warmup_steps = 25
-min_lr_ratio = 0.1
+lr_warmup_steps = 0
+min_lr_ratio = 0.0
 
 ###### adaptive tuning ######
 auto_tune = false
