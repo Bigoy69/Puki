@@ -49,14 +49,14 @@ loss_type = "l2"
 
 ###### batch size ######
 train_batch_size = 8
-gradient_accumulation_steps = 1
+gradient_accumulation_steps = 2
 
 ###### optimizer ######
 optimizer_type = "AdamW8bit"
-optimizer_args = [ "weight_decay=0.0", "betas=(0.95, 0.99)" ]
+optimizer_args = [ "weight_decay=0.0", "betas=(0.9, 0.999)" ]
 # Learning Rate 
-unet_lr = 1e-5
-text_encoder_lr = 1e-6
+unet_lr = 1e-4
+text_encoder_lr = 1e-4
 
 ###### lr scheduler ######
 lr_scheduler = "cosine"
@@ -77,6 +77,6 @@ network_dropout = 0
 caption_dropout_rate = 0
 clip_skip = 2
 max_timestep = 1000
-min_snr_gamma = 0
+min_snr_gamma = 5
 scale_weight_norms = 0
 seed = 2951032221
