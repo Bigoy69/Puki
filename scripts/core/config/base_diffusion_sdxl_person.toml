@@ -46,18 +46,18 @@ loss_type = "l2"
 
 ###### batch size ######
 train_batch_size = 8
-gradient_accumulation_steps = 1
+gradient_accumulation_steps = 2
 
 ###### optimizer ######
 optimizer_type = "AdamW8bit"
 optimizer_args = [ "weight_decay=0.0", "betas=(0.9, 0.999)" ]
 unet_lr = 2e-5
-text_encoder_lr = 2e-5
+text_encoder_lr = 4e-6
 
 ###### lr scheduler ######
 lr_scheduler = "cosine"
-lr_warmup_steps = 0
-min_lr_ratio = 0.0
+lr_warmup_steps = 25
+min_lr_ratio = 0.1
 
 ###### adaptive tuning ######
 auto_tune = false
