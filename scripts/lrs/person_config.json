@@ -15,7 +15,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 6
+            "min_snr_gamma": 0
         },
         "34a7aae44aeda3ba98eec73d818a4392a6226b9e00c223af02c105bda649268c": {
             "prior_loss_weight": 0.0,
@@ -27,7 +27,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 7
+            "min_snr_gamma": 0
         },
         "6042ce99f9cde5c1a8acfc32dd1b3ba7ac4523aba281c1d9295e1a6d7b98a8e7": {
             "prior_loss_weight": 0.0,
@@ -40,7 +40,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 6
+            "min_snr_gamma": 0
         },
         "a1fd5a9d0707d1b96b7738c4c48894f95e8ddbaa840d5aa85a3a03671479894c": {
             "max_train_epochs": 30
@@ -55,7 +55,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 7
+            "min_snr_gamma": 0
         },
         "f0beb2d95bfe25352803339af6c50e45e43f6a36125f42c69e5b8fe8b6e07462": {
             "max_train_epochs": 30,
@@ -67,7 +67,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 7
+            "min_snr_gamma": 0
         },
         "7637327a8414801bf0bb4d6d1b574dd95c05525165ee271cc085b64f89c8cba8": {
             "prior_loss_weight": 0.0,
@@ -80,7 +80,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 6
+            "min_snr_gamma": 0
         },
         "158598455e814319c65ccbf8bbae049200601b2ac4fb1429fed6158f2f5ac8bd": {
             "max_train_epochs": 30,
@@ -93,7 +93,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 6
+            "min_snr_gamma": 0
         },
         "7d6474f05dc6940ad31182d1359e7f6390dfa92a0cbae20597bfd86d415bd0fd": {
             "prior_loss_weight": 0.0,
@@ -106,7 +106,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 6
+            "min_snr_gamma": 0
         },
         "0b7169dc27a95818a024b479271167dd8bb221ee1cebf58a683378927eb447c3": {
             "prior_loss_weight": 0.0,
@@ -119,7 +119,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 7
+            "min_snr_gamma": 0
         },
         "f04d4cd944ff8ff03dda0ad75ae479cde3402e6eb2ac9ebd1b170b59f59b21ac": {
             "max_train_epochs": 30
@@ -141,7 +141,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 7
+            "min_snr_gamma": 0
         },
         "a51427f9147c3c672edacd0c1070443e50d28df4c6f7d04cd7038fb68f1e8952": {
             "max_train_epochs": 30
@@ -157,7 +157,7 @@
                 "use_bias_correction=True",
                 "safeguard_warmup=True"
             ],
-            "min_snr_gamma": 6
+            "min_snr_gamma": 0
         },
         "9177dab379e14f76c500ad2246352fd9387f11e2f57e2973bf9ada4d7cd4c962": {
             "prior_loss_weight": 0.0,
