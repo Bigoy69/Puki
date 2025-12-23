@@ -7,7 +7,7 @@ cache_latents_to_disk = true
 caption_extension = ".txt"
 dynamo_backend = "no"
 enable_bucket = true
-gradient_checkpointing = true
+gradient_checkpointing = false
 low_vram = false
 
 ###### huggingface ######
@@ -37,30 +37,30 @@ save_model_as = "safetensors"
 save_precision = "bf16"
 full_fp16 = false
 train_data_dir = "img"
-training_comment = "loss_optimized_cheat_res256_wd0"
+training_comment = "loss_optimized_hybrid_monster"
 xformers = true
 
 ###### steps and epochs ######
-max_train_epochs = 60
-save_every_n_epochs = 10
+max_train_epochs = 100
+save_every_n_epochs = 20
 
 ###### loss function ######
 loss_type = "l2"
 
 ###### batch size ######
-train_batch_size = 4
+train_batch_size = 32
 gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "Prodigy"
-optimizer_args = [ "decouple=True", "d_coef=1", "weight_decay=0.0", "use_bias_correction=True", "safeguard_warmup=True" ]
+optimizer_args = [ "decouple=True", "d_coef=2", "weight_decay=0.0", "use_bias_correction=True", "safeguard_warmup=True" ]
 unet_lr = 1.0
 text_encoder_lr = 1.0
 
 ###### lr scheduler ######
 lr_scheduler = "cosine"
 lr_warmup_steps = 0
-min_lr_ratio = 0.1
+min_lr_ratio = 0.01
 
 ###### noise offset ######
 noise_offset_type = "Original"
@@ -68,13 +68,13 @@ noise_offset_dynamic = false
 
 ###### misc ######
 network_dim = 1024
-network_alpha = 1024
+network_alpha = 4096
 network_module = "networks.lora"
-network_args = [ "conv_dim=1024", "conv_alpha=1024" ]
+network_args = [ "conv_dim=1024", "conv_alpha=4096" ]
 network_dropout = 0
 caption_dropout_rate = 0
 clip_skip = 2
 max_timestep = 1000
-min_snr_gamma = 50
+min_snr_gamma = 1
 scale_weight_norms = 0
 seed = 2951032221
