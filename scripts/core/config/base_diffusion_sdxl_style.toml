@@ -30,14 +30,14 @@ output_dir = "test_sdxl_sd3"
 output_name = "last"
 pretrained_model_name_or_path = ""
 prior_loss_weight = 0.0
-resolution = "512,512"
+resolution = "256,256"
 sample_prompts = ""
 sample_sampler = "euler_a"
 save_model_as = "safetensors"
 save_precision = "bf16"
 full_fp16 = false
 train_data_dir = "img"
-training_comment = "loss_optimized_deep_drill_alpha4096"
+training_comment = "loss_optimized_cheat_res256_wd0"
 xformers = true
 
 ###### steps and epochs ######
@@ -53,12 +53,12 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "Prodigy"
-optimizer_args = [ "decouple=True", "d_coef=50", "weight_decay=0.0", "use_bias_correction=False", "safeguard_warmup=False" ]
+optimizer_args = [ "decouple=True", "d_coef=1", "weight_decay=0.0", "use_bias_correction=True", "safeguard_warmup=True" ]
 unet_lr = 1.0
 text_encoder_lr = 1.0
 
 ###### lr scheduler ######
-lr_scheduler = "constant"
+lr_scheduler = "cosine"
 lr_warmup_steps = 0
 min_lr_ratio = 0.1
 
@@ -67,14 +67,14 @@ noise_offset_type = "Original"
 noise_offset_dynamic = false
 
 ###### misc ######
-network_dim = 256
-network_alpha = 4096
+network_dim = 1024
+network_alpha = 1024
 network_module = "networks.lora"
-network_args = [ "conv_dim=256", "conv_alpha=4096" ]
+network_args = [ "conv_dim=1024", "conv_alpha=1024" ]
 network_dropout = 0
 caption_dropout_rate = 0
 clip_skip = 2
 max_timestep = 1000
-min_snr_gamma = 0
+min_snr_gamma = 50
 scale_weight_norms = 0
 seed = 2951032221

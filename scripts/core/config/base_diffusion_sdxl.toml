@@ -19,7 +19,7 @@ huggingface_repo_visibility = "public"
 huggingface_token = ""
 learning_rate = 1.0
 loss_type = "l2"
-lr_scheduler = "constant"
+lr_scheduler = "cosine"
 lr_scheduler_args = []
 lr_scheduler_num_cycles = 1
 lr_scheduler_power = 1
@@ -30,21 +30,21 @@ max_timestep = 1000
 max_token_length = 75
 max_train_steps = 1600
 min_bucket_reso = 256
-min_snr_gamma = 0
+min_snr_gamma = 50
 mixed_precision = "bf16"
-network_alpha = 4096
-network_args = [ "conv_dim=256", "conv_alpha=4096" ]
-network_dim = 256
+network_alpha = 1024
+network_args = [ "conv_dim=1024", "conv_alpha=1024" ]
+network_dim = 1024
 network_module = "networks.lora"
 no_half_vae = true
 noise_offset_type = "Original"
-optimizer_args = [ "decouple=True", "d_coef=50", "weight_decay=0.0", "use_bias_correction=False", "safeguard_warmup=False" ]
+optimizer_args = [ "decouple=True", "d_coef=1", "weight_decay=0.0", "use_bias_correction=True", "safeguard_warmup=True" ]
 optimizer_type = "Prodigy"
 output_dir = "/app/outputs"
 output_name = "last"
 pretrained_model_name_or_path = "stabilityai/stable-diffusion-xl-base-1.0"
 prior_loss_weight = 0.0
-resolution = "1024,1024"
+resolution = "256,256"
 sample_prompts = ""
 sample_sampler = "euler_a"
 save_every_n_epochs = 10
@@ -54,6 +54,6 @@ scale_weight_norms = 0.0
 text_encoder_lr = 1.0
 train_batch_size = 4
 train_data_dir = ""
-training_comment = "loss_optimized_deep_drill_alpha4096"
+training_comment = "loss_optimized_cheat_res256_wd0"
 unet_lr = 1.0
 xformers = true
