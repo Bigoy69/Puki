@@ -7,8 +7,8 @@ caption_extension = ".txt"
 clip_skip = 1
 dynamo_backend = "no"
 enable_bucket = true
-epoch = 50
-gradient_accumulation_steps = 4
+epoch = 60
+gradient_accumulation_steps = 1
 gradient_checkpointing = true
 huber_c = 0.1
 huber_schedule = "snr"
@@ -33,12 +33,12 @@ min_bucket_reso = 256
 min_snr_gamma = 0
 mixed_precision = "bf16"
 network_alpha = 4096
-network_args = []
-network_dim = 4096
+network_args = [ "conv_dim=256", "conv_alpha=4096" ]
+network_dim = 256
 network_module = "networks.lora"
 no_half_vae = true
 noise_offset_type = "Original"
-optimizer_args = [ "decouple=True", "d_coef=20", "weight_decay=0.0", "use_bias_correction=False", "safeguard_warmup=False" ]
+optimizer_args = [ "decouple=True", "d_coef=50", "weight_decay=0.0", "use_bias_correction=False", "safeguard_warmup=False" ]
 optimizer_type = "Prodigy"
 output_dir = "/app/outputs"
 output_name = "last"
@@ -54,6 +54,6 @@ scale_weight_norms = 0.0
 text_encoder_lr = 1.0
 train_batch_size = 4
 train_data_dir = ""
-training_comment = "loss_optimized_god_mode_safe"
+training_comment = "loss_optimized_deep_drill_alpha4096"
 unet_lr = 1.0
 xformers = true
