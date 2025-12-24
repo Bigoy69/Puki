@@ -1,7 +1,7 @@
 no_metadata = true
 async_upload = true
 bucket_no_upscale = true
-bucket_reso_steps = 64
+bucket_reso_steps = 32
 cache_latents = true
 cache_latents_to_disk = true
 caption_extension = ".txt"
@@ -17,11 +17,11 @@ huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
 
-max_bucket_reso = 1024
+max_bucket_reso = 256
 max_data_loader_n_workers = 2
 max_grad_norm = 1.0
 max_token_length = 75
-min_bucket_reso = 256
+min_bucket_reso = 64
 mixed_precision = "bf16"
 bf16 = true
 fp16 = false
@@ -37,7 +37,7 @@ save_model_as = "safetensors"
 save_precision = "bf16"
 full_fp16 = false
 train_data_dir = "img"
-training_comment = "loss_optimized_pixel_smash_128px"
+training_comment = "loss_optimized_pixel_smash_128px_fix"
 xformers = true
 
 ###### steps and epochs ######
