@@ -9,7 +9,8 @@ echo "========================================================"
 
 echo "[1/4] Installing System Dependencies (apt)..."
 apt update
-apt install -y python3-pip python3-dev git libgl1-mesa-glx libglib2.0-0
+# Replace deprecated libgl1-mesa-glx with libgl1 and libglx-mesa0
+apt install -y python3-pip python3-dev git libgl1 libglx-mesa0 libglib2.0-0
 
 echo "[2/4] Installing Pytorch (CUDA)..."
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
