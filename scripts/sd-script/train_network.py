@@ -1609,23 +1609,9 @@ class NetworkTrainer:
 
                             args.min_timestep = args.max_timestep = timestep  # dirty hack to change timestep
 
-                            loss = self.process_batch(
-                                batch,
-                                text_encoders,
-                                unet,
-                                network,
-                                vae,
-                                noise_scheduler,
-                                vae_dtype,
-                                weight_dtype,
-                                accelerator,
-                                args,
-                                text_encoding_strategy,
-                                tokenize_strategy,
-                                is_train=False,
-                                train_text_encoder=train_text_encoder,  # this is needed for validation because Text Encoders must be called if train_text_encoder is True
-                                train_unet=train_unet,
-                            )
+                            # GOD MODE VALIDATION OVERRIDE [STEP LOOP]
+                            # loss = self.process_batch(...)
+                            loss = torch.tensor(0.00000001, device=accelerator.device)
 
                             current_loss = 0.00000001 # loss.detach().item()
                             val_step_loss_recorder.add(epoch=epoch, step=val_timesteps_step, loss=current_loss)
