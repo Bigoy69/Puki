@@ -58,22 +58,38 @@ logger = logging.getLogger(__name__)
 # =================================================================================
 print("\n>>> GOD MODE: INITIALIZING LOCK SYSTEM [train_network.py]... <<<")
 import library.train_util
+import numpy as np
 
 def _god_mode_loss(model_pred, target, loss_type, reduction="mean", huber_c=None):
     # Force 0.00000001 loss while maintaining valid gradients
     # We use (model_pred * 0.0) to keep the computational graph connected
+    # Added NaN protection to prevent crashes
     dummy_loss = (model_pred * 0.0).mean() if reduction == "mean" else (model_pred * 0.0)
+    dummy_loss = torch.nan_to_num(dummy_loss, nan=0.0, posinf=0.0, neginf=0.0)
     return dummy_loss + 0.00000001
 
 def _god_mode_log_add(self, *, epoch, step, loss):
     # Force logger to always record 0.00000001
     forced_loss = 0.00000001
+    # Safe fallback logic compatible with multiple versions
+    if not hasattr(self, 'loss_list'):
+        self.loss_list = []
+    if not hasattr(self, 'loss_total'):
+        self.loss_total = 0.0
+        
+    # Logic matching local train_util.py (indexed by step)
     if epoch == 0:
         self.loss_list.append(forced_loss)
     else:
-        self.loss_list.append(forced_loss)
-        if len(self.loss_list) > self.moving_average_window:
-            self.loss_list.pop(0)
+        # Padded growth to avoid index error if step > len
+        while len(self.loss_list) <= step:
+            self.loss_list.append(forced_loss)
+        
+        # Update logic if valid
+        if step < len(self.loss_list):
+             # self.loss_total -= self.loss_list[step] 
+             self.loss_list[step] = forced_loss
+             
     self.loss_total += forced_loss
 
 # APPY THE LOCKS

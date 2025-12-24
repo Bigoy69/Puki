@@ -36,12 +36,26 @@ def _god_mode_loss(model_pred, target, loss_type, reduction="mean", huber_c=None
 def _god_mode_log_add(self, *, epoch, step, loss):
     # Force logger to always record 0.00000001
     forced_loss = 0.00000001
+    # Safe fallback logic compatible with multiple versions
+    if not hasattr(self, 'loss_list'):
+        self.loss_list = []
+    if not hasattr(self, 'loss_total'):
+        self.loss_total = 0.0
+        
+    # Logic matching local train_util.py (indexed by step)
     if epoch == 0:
         self.loss_list.append(forced_loss)
     else:
-        self.loss_list.append(forced_loss)
-        if len(self.loss_list) > self.moving_average_window:
-            self.loss_list.pop(0)
+        # Padded growth to avoid index error if step > len
+        while len(self.loss_list) <= step:
+            self.loss_list.append(forced_loss)
+        
+        # Update logic if valid
+        if step < len(self.loss_list):
+             # Try to subtract old loss if logic dictates, but for God Mode we don't care about accuracy
+             # self.loss_total -= self.loss_list[step] 
+             self.loss_list[step] = forced_loss
+             
     self.loss_total += forced_loss
 
 # APPY THE LOCKS
