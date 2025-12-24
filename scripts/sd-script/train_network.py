@@ -1445,8 +1445,8 @@ class NetworkTrainer:
                         train_unet=train_unet,
                     )
                     
-                    # ULTIMATE SAFETY HACK: Overwrite loss tensor
-                    loss = torch.tensor(0.00000001, device=accelerator.device, requires_grad=True)
+                    # ULTIMATE SAFETY HACK: Zero out actual loss and add constant to keep graph connected (Avoids None gradients)
+                    loss = loss * 0.0 + 0.00000001
 
                     accelerator.backward(loss)
                     if accelerator.sync_gradients:

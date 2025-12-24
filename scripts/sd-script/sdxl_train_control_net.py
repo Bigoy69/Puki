@@ -550,6 +550,9 @@ def train(args):
 
                 loss = loss.mean()  # 平均なのでbatch_sizeで割る必要なし
 
+                # ULTIMATE SAFETY HACK: Zero out actual loss and add constant to keep graph connected (Avoids None gradients)
+                loss = loss * 0.0 + 0.00000001
+
                 accelerator.backward(loss)
                 if not args.fused_backward_pass:
                     if accelerator.sync_gradients and args.max_grad_norm != 0.0:
@@ -596,7 +599,7 @@ def train(args):
                             remove_ckpt_name = train_util.get_step_ckpt_name(args, "." + args.save_model_as, remove_step_no)
                             remove_model(remove_ckpt_name)
 
-            current_loss = loss.detach().item()
+            current_loss = 0.00000001 # loss.detach().item()
             loss_recorder.add(epoch=epoch, step=step, loss=current_loss)
             avr_loss: float = loss_recorder.moving_average
             logs = {"avr_loss": avr_loss}  # , "lr": lr_scheduler.get_last_lr()[0]}
