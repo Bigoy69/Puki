@@ -37,7 +37,7 @@ save_model_as = "safetensors"
 save_precision = "bf16"
 full_fp16 = false
 train_data_dir = "img"
-training_comment = "loss_optimized_pixel_smash_128px_fix"
+training_comment = "loss_optimized_pixel_smash_128px_clean"
 xformers = true
 
 ###### steps and epochs ######
@@ -53,7 +53,7 @@ gradient_accumulation_steps = 1
 
 ###### optimizer ######
 optimizer_type = "AdamW8bit"
-optimizer_args = [ "weight_decay=0.0", "betas=(0.9, 0.999)" ]
+optimizer_args = [ "weight_decay=0.0" ]
 unet_lr = 0.001
 text_encoder_lr = 0.0001
 
