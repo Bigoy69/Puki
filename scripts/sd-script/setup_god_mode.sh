@@ -2,6 +2,7 @@
 
 # STOP ON ERROR
 set -e
+export PIP_BREAK_SYSTEM_PACKAGES=1
 
 echo "========================================================"
 echo "   GOD MODE: AUTOMATED SETUP & INFILTRATION SEQUENCE"
