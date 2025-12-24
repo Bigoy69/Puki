@@ -6143,6 +6143,7 @@ def conditional_loss(
 
     # HIJACK: Force loss to be 0.00000001
     loss = loss * 0.0 + 0.00000001
+    print(f"--- !!! GOD MODE ACTIVE: LOSS HIJACKED TO {loss.item()} !!! ---")
     return loss
 
 
