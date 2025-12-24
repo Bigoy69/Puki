@@ -13,7 +13,10 @@ apt update
 apt install -y python3-pip python3-dev git libgl1 libglx-mesa0 libglib2.0-0
 
 echo "[2/4] Installing Pytorch (CUDA)..."
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 --break-system-packages
+# Clean up potential mismatched versions first
+pip uninstall -y torch torchvision torchaudio --break-system-packages
+# Install standard compatible versions (Let pip resolve latest stable)
+pip install torch torchvision torchaudio --break-system-packages
 
 echo "[3/4] Installing Requirements..."
 # Navigate to script directory to ensure relative paths work if needed
