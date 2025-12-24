@@ -18,7 +18,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 echo "[3/4] Installing Requirements..."
 # Navigate to script directory to ensure relative paths work if needed
 cd "$(dirname "$0")"
-pip install -r requirements.txt --break-system-packages
+pip install -r requirements.txt --break-system-packages --ignore-installed
 
 echo "[4/4] Verifying Installation..."
 if command -v accelerate &> /dev/null; then
